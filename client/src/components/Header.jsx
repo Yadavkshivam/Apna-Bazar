@@ -11,7 +11,10 @@ import UserMenu from './UserMenu';
 import { DisplayPriceInRupees } from '../utils/DisplayPriceInRupees';
 import { useGlobalContext } from '../provider/GlobalProvider';
 import DisplayCartItem from './DisplayCartItem';
-
+import { TiWeatherDownpour } from "react-icons/ti";
+import { HiRefresh } from 'react-icons/hi';
+import { IoLocationSharp } from "react-icons/io5";
+import { LiaSearchLocationSolid } from "react-icons/lia";
 const Header = () => {
     const [ isMobile ] = useMobile()
     const location = useLocation()
@@ -85,6 +88,28 @@ const Header = () => {
                                 <div className='hidden lg:block bg-red-300 '>
                                     <Search/>
                                 </div>
+
+<div className="flex items-center gap-2 ">
+  <div className="flex items-center justify-center bg-transparent  text-black  h-14 w-14 rounded-full font-bold ">
+    <a href='https://realtimetracker-8x7r.onrender.com/'>
+    <IoLocationSharp size={30}/>
+    </a> 
+  </div>    
+
+  <div className="flex items-center justify-center bg-transparent text-black h-14 w-14 rounded-full ">
+    <a href='https://weather-forecast-63d2.vercel.app/'>
+    <TiWeatherDownpour size={28}  />
+    </a> 
+  </div>
+
+  <div className="flex flex-col">
+    <span className="text-base font-semibold text-gray-800">Rainy</span>
+    <span className="text-sm text-gray-600">24°C • Moderate Rain</span>
+  </div>
+</div>
+
+
+
 
 
                                 {/**login and my cart */}

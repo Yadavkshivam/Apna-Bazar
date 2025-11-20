@@ -46,34 +46,52 @@ const Home = () => {
 </div>
 
       
-      <div className='container mx-auto px-4 my-2 grid grid-cols-5 md:grid-cols-8 lg:grid-cols-10  gap-2'>
-          {
-            loadingCategory ? (
-              new Array(12).fill(null).map((c,index)=>{
-                return(
-                  <div key={index+"loadingcategory"} className='bg-white rounded p-4 min-h-36 grid gap-2 shadow animate-pulse'>
-                    <div className='bg-blue-100 min-h-24 rounded'></div>
-                    <div className='bg-blue-100 h-8 rounded'></div>
-                  </div>
-                )
-              })
-            ) : (
-              categoryData.map((cat,index)=>{
-                return(
-                  <div key={cat._id+"displayCategory"} className='w-full h-full' onClick={()=>handleRedirectProductListpage(cat._id,cat.name)}>
-                    <div>
-                        <img 
-                          src={cat.image}
-                          className='w-full h-full object-scale-down'
-                        />
-                    </div>
-                  </div>
-                )
-              })
-              
-            )
-          }
-      </div>
+<div className="container mx-auto px-4 my-4 
+  grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+
+  {
+    loadingCategory ? (
+      new Array(12).fill(null).map((c, index) => {
+        return (
+          <div 
+            key={index + 'loadingcategory'}
+            className="bg-green-50/70 border border-green-200 
+            rounded-2xl p-4 min-h-40 grid gap-3 shadow-md animate-pulse"
+          >
+            <div className="bg-green-200 min-h-24 rounded-xl"></div>
+            <div className="bg-green-200 h-6 rounded"></div>
+          </div>
+        )
+      })
+    ) : (
+      categoryData.map((cat, index) => {
+        return (
+          <div 
+            key={cat._id + 'displayCategory'}
+            className="w-full h-full cursor-pointer bg-green-50 hover:bg-green-100 
+            border border-green-200 rounded-2xl shadow-md hover:shadow-xl 
+            transition-all p-3"
+            onClick={() => handleRedirectProductListpage(cat._id, cat.name)}
+          >
+            <div className="flex justify-center items-center">
+              <img 
+                src={cat.image}
+                className="w-full h-32 object-contain rounded-xl"
+              />
+            </div>
+
+            {/* Product name added */}
+            <p className="text-center mt-3 font-semibold text-green-800 text-sm">
+              {cat.name}
+            </p>
+
+          </div>
+        )
+      })
+    )
+  }
+</div>
+
 
       {/***display category product */}
       {
