@@ -73,7 +73,7 @@ const Footer = () => {
           hover:bg-green-700 hover:scale-110
           transition-all duration-300
           z-50
-          animate-ping
+          animate-bounce
         "
       >
         {open ? (

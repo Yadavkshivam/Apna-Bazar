@@ -5,10 +5,11 @@ import { useSelector } from 'react-redux'
 import { valideURLConvert } from '../utils/valideURLConvert'
 import {Link, useNavigate} from 'react-router-dom'
 import CategoryWiseProductDisplay from '../components/CategoryWiseProductDisplay'
+import DraggableBar from '../components/dragBar' 
 
 const Home = () => {
   const loadingCategory = useSelector(state => state.product.loadingCategory)
-  const categoryData = useSelector(state => state.product.allCategory)
+  const   categoryData = useSelector(state => state.product.allCategory)
   const subCategoryData = useSelector(state => state.product.allSubCategory)
   const navigate = useNavigate()
 
@@ -43,12 +44,21 @@ const Home = () => {
       alt="banner"
     />
   </div>
+</div>  
+
+
+
+<div>
+<DraggableBar /> 
 </div>
 
-      
+
+
+<div className='px-20 mt-7'>
+     <h3 className='flex-center text-bold text-2xl' id="Product" >Products</h3>  
+     
 <div className="container mx-auto px-4 my-4 
   grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
-
   {
     loadingCategory ? (
       new Array(12).fill(null).map((c, index) => {
@@ -81,7 +91,7 @@ const Home = () => {
             </div>
 
             {/* Product name added */}
-            <p className="text-center mt-3 font-semibold text-green-800 text-sm">
+            <p className="text-center mt-3 font-semibold text-green-800 text-l">
               {cat.name}
             </p>
 
@@ -91,6 +101,7 @@ const Home = () => {
     )
   }
 </div>
+</div>    
 
 
       {/***display category product */}
