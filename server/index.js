@@ -37,6 +37,7 @@ app.get("/",(request,response)=>{
     })
 })
 
+
 app.use('/api/user',userRouter)
 app.use("/api/category",categoryRouter)
 app.use("/api/file",uploadRouter)
@@ -48,6 +49,7 @@ app.use('/api/order',orderRouter)
 
 connectDB().then(()=>{
     app.listen(PORT,()=>{
+        console.log("There is no error in database");
         console.log("Server is running",PORT)
     })
 })
