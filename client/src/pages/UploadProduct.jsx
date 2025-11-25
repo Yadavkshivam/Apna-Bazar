@@ -14,6 +14,7 @@ import successAlert from '../utils/SuccessAlert';
 import { useEffect } from 'react';
 
 const UploadProduct = () => {
+  const user = useSelector(state => state.user);  
   const [data,setData] = useState({
       name : "",
       image : [],

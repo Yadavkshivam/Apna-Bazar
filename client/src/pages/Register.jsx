@@ -131,7 +131,7 @@ const Register = () => {
         name='role'               
         value={data.role}
         onChange={handleChange}
-        placeholder='Are you ADMIN/USER'
+        placeholder='Are you ADMIN/USER/EXPERT'
     />
 </div>
 

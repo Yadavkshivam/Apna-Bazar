@@ -67,10 +67,10 @@ const userSchema = new mongoose.Schema({
     },
 role: {
   type: String,
-  enum: ["ADMIN", "USER"],
+  enum: ["ADMIN", "USER","EXPERT"],
   validate: {
     validator: function (value) {
-      return value === "ADMIN" || value === "USER";
+      return value === "ADMIN" || value === "USER" || value==="EXPERT";
     },
     message: "Please provide your identity"
   }

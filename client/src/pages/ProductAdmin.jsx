@@ -17,14 +17,18 @@ const ProductAdmin = () => {
   const fetchProductData = async()=>{
     try {
         setLoading(true)
+       
         const response = await Axios({
            ...SummaryApi.getProduct,
            data : {
               page : page,
-              limit : 12,
-              search : search 
+              limit : 6,
+              search : search,
+              
            }
+           
         })
+      
 
         const { data : responseData } = response 
 
@@ -34,6 +38,7 @@ const ProductAdmin = () => {
         }
 
     } catch (error) {
+      console.log(error);
       AxiosToastError(error)
     }finally{
       setLoading(false)
@@ -79,12 +84,12 @@ const ProductAdmin = () => {
   return (
     <section className=''>
         <div className='p-2  bg-white shadow-md flex items-center justify-between gap-4'>
-                <h2 className='font-semibold'>Product</h2>
+                <h2 className='font-semibold'>Product / Services  </h2>
                 <div className='h-full min-w-24 max-w-56 w-full ml-auto bg-blue-50 px-4 flex items-center gap-3 py-2 rounded  border focus-within:border-primary-200'>
                   <IoSearchOutline size={25}/>
                   <input
                     type='text'
-                    placeholder='Search product here ...' 
+                    placeholder='Search product ...' 
                     className='h-full w-full  outline-none bg-transparent'
                     value={search}
                     onChange={handleOnChange}
