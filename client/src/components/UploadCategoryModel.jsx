@@ -1,15 +1,33 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { IoClose } from "react-icons/io5";
 import uploadImage from '../utils/UploadImage';
 import Axios from '../utils/Axios';
 import SummaryApi from '../common/SummaryApi';
 import toast from 'react-hot-toast'
 import AxiosToastError from '../utils/AxiosToastError';
+import fetchUserDetails from '../utils/fetchUserDetails';
 
 const UploadCategoryModel = ({close, fetchData}) => {
+    const [username, setUsername] = useState("");
+    
+    const loadUserDetails = async () => {
+      try {
+        const result = await fetchUserDetails();
+        console.log("Logged in user:", result.data.name);
+        setUsername(result.data.name);
+      } catch (error) {
+        console.log("Cannot fetch details", error);
+      }
+    };
+    
+    useEffect(() => {
+      loadUserDetails();
+    }, []);
+    
     const [data,setData] = useState({
         name : "",
-        image : ""
+        image : "",
+        username:username,
     })
     const [loading,setLoading] = useState(false)
 
@@ -19,7 +37,8 @@ const UploadCategoryModel = ({close, fetchData}) => {
         setData((preve)=>{
             return{
                 ...preve,
-                [name] : value
+                [name] : value,
+                username:username,
             }
         })
     }

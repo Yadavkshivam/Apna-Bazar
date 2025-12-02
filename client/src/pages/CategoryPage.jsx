@@ -35,11 +35,16 @@ const CategoryPage = () => {
             setLoading(true)
             const response = await Axios({
                 ...SummaryApi.getCategory
+
             })
             const { data : responseData } = response
 
             if(responseData.success){
-                setCategoryData(responseData.data)
+    const filteredData = responseData.data.filter(
+        item => item.username === username
+    );
+
+    setCategoryData(filteredData);
             }
         } catch (error) {
             
@@ -88,12 +93,14 @@ const CategoryPage = () => {
                 categoryData.map((category,index)=>{
                     return(
                         <div className='w-32 h-56 rounded shadow-md' key={category._id}>
+                           
+                            <div className='mt-2 mb-3 bg-white hover:bg-gray-300 rounded-xl'>{category.name}</div>
                             <img 
                                 alt={category.name}
                                 src={category.image}
-                                className='w-full object-scale-down'
+                                className='w-full object-scale-down rounded-t-xl'
                             />
-                            <div className='items-center h-9 flex gap-2'>
+                            <div className='items-center h-9 flex gap-2 mt-1'>
                                 <button onClick={()=>{
                                     setOpenEdit(true)
                                     setEditData(category)

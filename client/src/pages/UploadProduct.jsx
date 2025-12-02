@@ -12,10 +12,34 @@ import SummaryApi from '../common/SummaryApi';
 import AxiosToastError from '../utils/AxiosToastError';
 import successAlert from '../utils/SuccessAlert';
 import { useEffect } from 'react';
+import fetchUserDetails from '../utils/fetchUserDetails';
 
 const UploadProduct = () => {
-  const user = useSelector(state => state.user);  
+    const [username, setUsername] = useState("");
+
+  const loadUserDetails = async () => {
+    try {
+      const result = await fetchUserDetails();
+      console.log("Logged in user:", result.data.name);
+
+      setUsername(result.data.name);   
+      setData(pre => ({ 
+        ...pre, 
+        username: result.data.name    
+      }));
+    } catch (error) {
+      console.log("Cannot fetch details", error);
+    }
+  };
+
+  useEffect(() => {
+    loadUserDetails();
+  }, []);
+
+
+
   const [data,setData] = useState({
+      username:"",
       name : "",
       image : [],
       category : [],
@@ -124,6 +148,7 @@ const UploadProduct = () => {
       if(responseData.success){
           successAlert(responseData.message)
           setData({
+            username:username,
             name : "",
             image : [],
             category : [],

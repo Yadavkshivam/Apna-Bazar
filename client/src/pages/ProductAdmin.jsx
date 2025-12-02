@@ -6,13 +6,16 @@ import Loading from '../components/Loading'
 import ProductCardAdmin from '../components/ProductCardAdmin'
 import { IoSearchOutline } from "react-icons/io5";
 import EditProductAdmin from '../components/EditProductAdmin'
+import fetchUserDetails from '../utils/fetchUserDetails';
 
 const ProductAdmin = () => {
+
   const [productData,setProductData] = useState([])
   const [page,setPage] = useState(1)
   const [loading,setLoading] = useState(false)
   const [totalPageCount,setTotalPageCount] = useState(1)
   const [search,setSearch] = useState("")
+  const [username ,setUsername]=useState("")
   
   const fetchProductData = async()=>{
     try {
@@ -24,6 +27,7 @@ const ProductAdmin = () => {
               page : page,
               limit : 6,
               search : search,
+              username:username
               
            }
            
@@ -31,10 +35,16 @@ const ProductAdmin = () => {
       
 
         const { data : responseData } = response 
+        // console.log(response.data);
 
         if(responseData.success){
+  //         const result =await fetchUserDetails();
+  //           const filteredData = responseData.data.filter(
+  //   item => item.username === result.data.username
+  // );
           setTotalPageCount(responseData.totalNoPage)
-          setProductData(responseData.data)
+          setProductData(filteredData)
+          console.log( "abhi ham filtered component pe hai ->",filteredData);
         }
 
     } catch (error) {
@@ -45,8 +55,12 @@ const ProductAdmin = () => {
     }
   }
   
+
+
+
   useEffect(()=>{
     fetchProductData()
+    
   },[page])
 
   const handleNext = ()=>{

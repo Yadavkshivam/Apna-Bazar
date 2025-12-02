@@ -52,6 +52,7 @@ const Home = () => {
 <DraggableBar /> 
 </div>
 
+
 <div className='px-20 mt-7'>
      <h3 className='flex-center text-bold text-2xl' id="Services" >Services</h3>  
      

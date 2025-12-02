@@ -7,12 +7,31 @@ import SummaryApi from '../common/SummaryApi';
 import toast from 'react-hot-toast';
 import AxiosToastError from '../utils/AxiosToastError';
 import { useEffect } from 'react';
+import fetchUserDetails from '../utils/fetchUserDetails';
+
 
 const UploadSubCategoryModel = ({close, fetchData}) => {
+      const [username, setUsername] = useState("");
+    
+    const loadUserDetails = async () => {
+      try {
+        const result = await fetchUserDetails();
+        console.log("Logged in user:", result.data.name);
+        setUsername(result.data.name);
+      } catch (error) {
+        console.log("Cannot fetch details", error);
+      }
+    };
+    
+    useEffect(() => {
+      loadUserDetails();
+    }, []);
+    
     const [subCategoryData,setSubCategoryData] = useState({
         name : "",
         image : "",
-        category : []
+        category : [],
+        username:username,  
     })
     const allCategory = useSelector(state => state.product.allCategory)
 
@@ -22,7 +41,8 @@ const UploadSubCategoryModel = ({close, fetchData}) => {
         setSubCategoryData((preve)=>{
             return{
                 ...preve,
-                [name] : value
+                [name] : value,
+                username:username,
             }
         })
     }
