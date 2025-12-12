@@ -25,26 +25,26 @@ const ProductAdmin = () => {
            ...SummaryApi.getProduct,
            data : {
               page : page,
-              limit : 6,
+              limit : 4,
               search : search,
               username:username
-              
            }
            
         })
-      
-
+        
         const { data : responseData } = response 
-        // console.log(response.data);
+        console.log("abhi hm dekh rhe ki konsa document jo aa rhe hai ",response.data);
 
         if(responseData.success){
-  //         const result =await fetchUserDetails();
-  //           const filteredData = responseData.data.filter(
-  //   item => item.username === result.data.username
-  // );
-          setTotalPageCount(responseData.totalNoPage)
-          setProductData(filteredData)
-          console.log( "abhi ham filtered component pe hai ->",filteredData);
+          const result =await fetchUserDetails();
+            const filteredData = responseData.data.filter(
+            item => item.username === result.data.username
+            
+              
+   );console.log("abhi ham dekh rhe item mai kya hai",filteredData)
+  //         setTotalPageCount(responseData.totalNoPage)
+  //         setProductData(filteredData)
+  //         console.log( "abhi ham filtered component pe hai ->",filteredData);
         }
 
     } catch (error) {

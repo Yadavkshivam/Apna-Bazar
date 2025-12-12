@@ -77,7 +77,7 @@ const Footer = () => {
       <button
         onClick={() => setOpen(!open)}
         className="
-          fixed bottom-6 right-6
+           bottom-6 right-6
           h-16 w-16 rounded-full
           bg-green-600 text-white font-semibold
           flex items-center justify-center
@@ -91,7 +91,7 @@ const Footer = () => {
         {open ? (
           <HiX className="text-3xl" />
         ) : (
-          <span className="text-xs font-bold text-white">Contact us</span>
+          <span className="text-xs font-bold text-white">Contact Us</span>
         )}
       </button>
 
