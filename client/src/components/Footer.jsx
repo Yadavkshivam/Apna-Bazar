@@ -98,7 +98,7 @@ const Footer = () => {
       {open && (
         <div
           className="
-            fixed bottom-28 right-6 w-72
+             bottom-2 right-6 w-72
             bg-white text-black rounded-xl shadow-2xl
             p-5 flex flex-col gap-3
             z-50

@@ -46,23 +46,23 @@ useEffect(() => {
 
   return (
     <>
-      {/* Floating Button */}
+
       <button
         onClick={() => {
           setOpen(!open);
           setAi(!ai);
         }}
-        className={`fixed bottom-6 right-6 z-[9999] text-xl bg-black text-white px-4 py-3 rounded-xl shadow-lg 
+        className={`fixed bottom-6 right-9 text-xl bg-black text-white px-4 py-3 rounded-xl shadow-lg pointer-events-auto z-[10000] 
         ${ai ? "animate-none" : "animate-bounce"}`}
       >
         🤖 Ask Me!!
       </button>
 
-      {/* CHAT WINDOW */}
+
       {open && (
         <div className="fixed bottom-20 right-6 w-[340px] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden z-[9999]">
 
-          {/* Header */}
+
           <div className="bg-black text-white p-3 font-semibold">
             Ask me anything ✨
           </div>
@@ -89,7 +89,7 @@ useEffect(() => {
             )}
           </div>
 
-          {/* Input Area */}
+            
           <div className="flex items-center border-t p-2">
             <input
               className="flex-1 p-2 border rounded-lg outline-none"

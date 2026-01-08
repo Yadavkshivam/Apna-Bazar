@@ -10,6 +10,7 @@ import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 import { loadStripe } from '@stripe/stripe-js'
 
+
 const CheckoutPage = () => {
   const { notDiscountTotalPrice, totalPrice, totalQty, fetchCartItem,fetchOrder } = useGlobalContext()
   const [openAddress, setOpenAddress] = useState(false)

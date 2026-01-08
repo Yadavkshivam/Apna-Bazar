@@ -61,10 +61,7 @@ const Home = () => {
     <AiBot/>
    </div>
 
-    <div>
-      
-      <NewsSlider/>
-    </div>
+  
 
 
 
@@ -85,11 +82,13 @@ const Home = () => {
       </div>
     </div>
 
-    <div className='h-full w-full fixed'>
+    <div className="h-full w-full fixed ">
       <DraggableBar />
     </div>
 
-    <div className="px-6 md:px-20 mt-16">
+  
+
+    {/* <div className="px-6 md:px-20 mt-16">
       <h3
         className="text-center font-extrabold text-3xl md:text-4xl text-green-900 tracking-wide mb-10"
         id="Services"
@@ -133,7 +132,7 @@ const Home = () => {
           )
         }
       </div>
-    </div>
+    </div> */}
     <div className="px-6 md:px-20 mt-20">
       <h3
         className="text-center font-extrabold text-3xl md:text-4xl text-green-900 tracking-wide mb-10"
@@ -228,6 +227,21 @@ const Home = () => {
         }
       </div>
 
+        <div className='
+                mt-24 
+        space-y-24 
+        px-3 sm:px-6 md:px-16 
+        transition-all duration-700 
+        animate-fadeIn'
+        >
+    <h3
+        className="text-center font-extrabold text-3xl md:text-4xl text-green-900 tracking-wide mb-10"
+        id="Services"
+      >
+         📰  News
+      </h3>
+          <NewsSlider/>
+         </div>
   </section>
 )
 }
