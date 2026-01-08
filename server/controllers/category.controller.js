@@ -4,7 +4,7 @@ import ProductModel from "../models/product.model.js";
 
 export const AddCategoryController = async(request,response)=>{
     try {
-        const { name , image } = request.body 
+        const { name , image ,username } = request.body 
 
         if(!name || !image){
             return response.status(400).json({
@@ -16,7 +16,8 @@ export const AddCategoryController = async(request,response)=>{
 
         const addCategory = new CategoryModel({
             name,
-            image
+            image,
+            username,
         })
 
         const saveCategory = await addCategory.save()

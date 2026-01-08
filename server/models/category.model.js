@@ -8,6 +8,9 @@ const categorySchema = new mongoose.Schema({
     image : {
         type : String,
         default : ""
+    },
+    username:{
+        type: String,
     }
 },{
     timestamps : true

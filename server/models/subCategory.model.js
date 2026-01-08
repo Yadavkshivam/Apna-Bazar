@@ -1,6 +1,9 @@
 import mongoose from "mongoose";
 
 const subCategorySchema = new mongoose.Schema({
+    username:{
+        type: String,
+    },
     name : {
         type : String,
         default : ""

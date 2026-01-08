@@ -92,7 +92,7 @@ export async function paymentController(request,response){
                 addressId : addressId
             },
             line_items : line_items,
-            success_url : `${process.env.FRONTEND_URL}/success`,
+            success_url : `${process.env.FRONTEND_URL}`,
             cancel_url : `${process.env.FRONTEND_URL}/cancel`
         }
 
