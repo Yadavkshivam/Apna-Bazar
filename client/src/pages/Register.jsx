@@ -48,7 +48,7 @@ const Register = () => {
                 console.log("hii ");
                 console.log(import.meta.env.VITE_API_URL)
 
-                const response = await Axios.post('http://localhost:8080/api/user/register', data,{
+                const response = await Axios.post('${VITE_API_URL}/api/user/register', data,{
   withCredentials: true,
 }
                     
